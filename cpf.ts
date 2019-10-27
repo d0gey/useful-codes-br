@@ -1,19 +1,35 @@
 function TestaCPF(strCPF: string) {
-  let Soma = 0;
-  let Resto;
-  if (strCPF == "00000000000") return false;
-     
-  for (let i=1; i<=9; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (11 - i);
-  Resto = (Soma * 10) % 11;
-   
-    if ((Resto == 10) || (Resto == 11))  Resto = 0;
-    if (Resto != parseInt(strCPF.substring(9, 10)) ) return false;
-   
-  Soma = 0;
-    for (let i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (12 - i);
-    Resto = (Soma * 10) % 11;
-   
-    if ((Resto == 10) || (Resto == 11))  Resto = 0;
-    if (Resto != parseInt(strCPF.substring(10, 11) ) ) return false;
-    return true;
+  if (strCPF == "00000000000") {
+    return false;
+  }
+
+  let soma = 0;
+
+  for (let i = 1; i <= 9; i++) {
+    soma = soma + parseInt(strCPF.substring(i - 1, i)) * (11 - i);
+  }
+
+  let resto = (soma * 10) % 11;
+
+  if (resto == 10 || resto == 11) {
+    resto = 0;
+  }
+
+  if (resto != parseInt(strCPF.substring(9, 10))) {
+    return false;
+  }
+
+  soma = 0;
+
+  for (let i = 1; i <= 10; i++) {
+    soma = soma + parseInt(strCPF.substring(i - 1, i)) * (12 - i);
+  }
+
+  resto = (soma * 10) % 11;
+
+  if (resto == 10 || resto == 11) {
+    resto = 0;
+  }
+
+  return resto == parseInt(strCPF.substring(10, 11));
 }
