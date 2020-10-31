@@ -61,7 +61,7 @@ export function validarCNPJ(cnpj: string | number) {
   return (soma % 11 < 2 ? 0 : 11 - (soma % 11)).toString() === digitos.charAt(1);
 }
 
-function FormataCNPJ(strCNPJ: string) {
-  let resultado = strCNPJ.replace(/[^\d]/g, "");
+export function formataCNPJ(strCNPJ: string) {
+  const resultado = strCNPJ.replace(/[^\d]/g, "");
   return `${resultado.substring(0, 2)}.${resultado.substring(2, 5)}.${resultado.substring(5, 8)}/${resultado.substring(8, 12)}-${resultado.substring(12)}`;
 }
