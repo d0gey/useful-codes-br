@@ -33,3 +33,8 @@ function TestaCPF(strCPF: string) {
 
   return resto == parseInt(strCPF.substring(10, 11));
 }
+
+function FormataCPF(strCPF: string) {
+  let resultado = strCPF.replace(/[^\d]/g, "");
+  return `${resultado.substring(0, 3)}.${resultado.substring(3, 6)}.${resultado.substring(6, 9)}-${resultado.substring(9)}`;
+}
