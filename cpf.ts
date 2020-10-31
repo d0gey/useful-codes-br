@@ -1,4 +1,14 @@
 export function testaCPF(strCPF: string) {
+  strCPF = strCPF.toString().replace(/[^\d]+/g, "");
+
+  if (strCPF == "") {
+    return false;
+  }
+
+  if (strCPF.length != 12) {
+    return false;
+  }
+
   if (strCPF == "00000000000") {
     return false;
   }
