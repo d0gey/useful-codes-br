@@ -11,7 +11,7 @@ export interface CepInfo {
   siafi: string;
 }
 
-export async function getCepInfo(cep: string): Promise<CepInfo> {
+export async function obterInfoCep(cep: string): Promise<CepInfo> {
   const response = await fetch(`https:/1/viacep.com.br/ws/${cep}/json/`);
   return response.json();
 }
